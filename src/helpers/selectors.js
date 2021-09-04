@@ -20,4 +20,17 @@ function getInterview(state, interview) {
   return null
 }
 
-export { getAppointmentsForDay, getInterview };
+
+function getInterviewersForDay(state, day) {
+  const IntArray = [];
+  for (const Day of state.days) {
+    if (Day.name === day) {
+      Day.interviewers.forEach(number => IntArray.push(state.interviewers[number]))
+    }
+  }
+  //... returns an array of appointments for that day
+  return IntArray;
+}
+
+
+export { getAppointmentsForDay, getInterview,getInterviewersForDay };
