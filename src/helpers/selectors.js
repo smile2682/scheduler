@@ -13,7 +13,7 @@ function getInterview(state, interview) {
   if (interview) {
     const name =state.interviewers[interview.interviewer] 
     return {
-      student: interview.student,
+      ...interview,
       interviewer: name
     }
   }

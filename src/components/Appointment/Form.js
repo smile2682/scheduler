@@ -34,7 +34,11 @@ export default function Form(props) {
           */
           />
         </form>
-        <InterviewerList interviewers={props.interviewers} value={interviewer} onChange={setInterviewer} />
+        <InterviewerList interviewers={props.
+          //the value is the id of states.interviewers.interviewer
+          interviewers} value={interviewer} 
+          // why setInterviewer in a callback "()=>setInterviewer()" would not work? why the call of func is at list stage, not item stage?
+          onChange={setInterviewer} />
       </section>
       <section className="appointment__card-right">
         <section className="appointment__actions">
