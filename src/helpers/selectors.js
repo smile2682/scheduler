@@ -10,15 +10,19 @@ function getAppointmentsForDay(state, day) {
 }
 
 function getInterview(state, interview) {
-  if (interview) {
-    const name =state.interviewers[interview.interviewer] 
-    return {
-      ...interview,
-      interviewer: name
-    }
+  if (!interview) {
+    return null
   }
-  return null
+
+  const interviewer = state.interviewers[interview.interviewer]
+  return {
+    // student name and interviewer name
+    ...interview,
+    interviewer,
+    // interviewer: name
+  }
 }
+
 
 
 function getInterviewersForDay(state, day) {
@@ -28,9 +32,9 @@ function getInterviewersForDay(state, day) {
       Day.interviewers.forEach(number => IntArray.push(state.interviewers[number]))
     }
   }
-  //... returns an array of appointments for that day
+  //returns an array of interviewers for that day (id,name,avatar)
   return IntArray;
 }
 
 
-export { getAppointmentsForDay, getInterview,getInterviewersForDay };
+export { getAppointmentsForDay, getInterview, getInterviewersForDay };

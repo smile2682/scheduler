@@ -32,9 +32,9 @@ export default function Form(props) {
             className="appointment__create-input text--semi-bold"
             name="name"
             type="text"
-            // for editing func to keep student's name...is it neccessary?
+            // for editing func to keep student's name
             placeholder={props.student? props.student :"Enter Student Name"}
-            value={name ? name : ""}
+            value={name}
             onChange={e => setName(e.target.value)}
           /*
             This must be a controlled component

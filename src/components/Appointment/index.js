@@ -9,7 +9,6 @@ import Status from "./Status";
 import Confirm from "./Confirm";
 import Error from "./Error"
 
-// import { getInterviewersForDay } from "helpers/selectors";
 
 export default function Appointment(props) {
   const EMPTY = "EMPTY";
@@ -26,7 +25,7 @@ export default function Appointment(props) {
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
-  // why put save func here, not in the helper func?
+  // why put save and deleteAppo func here, not in the helper func?
   function save(name, interviewer) {
     const interview = {
       student: name,
@@ -72,14 +71,13 @@ export default function Appointment(props) {
         interviewers={props.interviewers}
         onCancel={back}
         onSave={save}
-      // student={props.interview.student}
-      // interviewer={props.interview}
       />
 
     )}
 
     {mode === SAVING && <Status message="Saving" />}
     {mode === DELETE && <Status message="Deleting" />}
+
     {mode === CONFIRM &&
       <Confirm
         message="Are you sure you would like to delete?" onConfirm={deleteAppo}
@@ -89,10 +87,11 @@ export default function Appointment(props) {
 
     {mode === EDIT &&
       <Form
-        student={props.interview.student}
-        // if time, review interviewer logic
+        name={props.interview.student}
+        // if time, review interview logic:why??
         interviewer={props.interview.interviewer.id}
         interviewers={props.interviewers}
+        // Best practice to use below or callback?
         onCancel={back}
         onSave={save}
 
@@ -106,6 +105,8 @@ export default function Appointment(props) {
     {mode === ERROR_DELETE &&
       <Error message="could not cancel appointment" onClose={back}
       />}
+
+
     {/* {props.interview ?
       <Show
         student={props.interview.student}
