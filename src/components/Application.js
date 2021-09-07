@@ -33,6 +33,51 @@ export default function Application(props) {
   const interview = getInterview(state, appointment.interview);
   const interviewersForDay = getInterviewersForDay(state, state.day)
 
+  function bookInterview(id, interview) {
+    console.log(id, interview);
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview }
+    };
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };
+
+    return axios
+      .put(`/api/appointments/${id}`, {
+        // shall  I spread the id and time? how does this put work?
+        interview,
+      })
+      .then(result => {
+        setState({
+          ...state,
+          appointments
+        });
+        console.log(result)
+      });
+    
+  };
+  
+  function cancelInterview(id) {
+    const appointment = {
+      ...state.appointments[id],
+      interview: null,
+    };
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment,
+    };
+
+    return axios.delete(`/api/appointments/${id}`, {}).then((result) => {
+      console.log(result)
+      setState({
+        ...state,
+        appointments,
+      });
+    });
+  }
+
     return (
       <Appointment
         key={appointment.id}
@@ -40,6 +85,8 @@ export default function Application(props) {
         time={appointment.time}
         interview={interview}
         interviewers={interviewersForDay}
+        bookInterview={bookInterview}
+        cancelInterview={cancelInterview}
       />
     );
   });

@@ -8,8 +8,8 @@ const {interviewers, value, onChange}=props;
 const parsedInterviewers=interviewers.map(
   interviewerItem=>{
     const {id,name,avatar}=interviewerItem
-console.log("interItem",interviewerItem)
-console.log("props",props);
+// console.log("interItem",interviewerItem)
+// console.log("props",props);
     return(
   <InterviewerListItem
       key = {id} 
