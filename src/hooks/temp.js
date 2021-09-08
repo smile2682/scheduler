@@ -42,16 +42,7 @@ const showAllSpots = function (days) {
 
 
 const updateSpots = function (state, appointments) {
-  const daysArr = [...state.days]                 // initial array
-  daysArr.map((day) => {
-    for (const appointment of day.appointments) { // loop through appointments 
-      if (appointment === id) {                   // match appointment and ID
-        day.spots = day.spots + change;           // both increment and decrement
-      } 
-    }
-    return day.spots;
-  })
-  return daysArr;
+
   // ** your code goes here  
   
 };

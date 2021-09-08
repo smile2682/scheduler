@@ -1,9 +1,15 @@
 import React from "react";
 import InterviewerListItem from "./InterviewerListItem";
 import "components/InterviewerList.scss"
+import PropTypes from 'prop-types';
 
 export default function InterviewerList (props){
 const {interviewers, value, onChange}=props;
+// this one is not shown, but the map on line 13 for error.
+InterviewerList.propTypes = {
+  interviewers: PropTypes.array.isRequired
+};
+
 
 const parsedInterviewers=interviewers.map(
   interviewerItem=>{

@@ -47,7 +47,7 @@ export default function Appointment(props) {
   }
 
 
-
+ console.log("props=",props.interview)
   return <article className="appointment">
     <Header time={props.time} />
     {mode === EMPTY &&
@@ -56,7 +56,7 @@ export default function Appointment(props) {
       />
     }
 
-
+  
     {mode === SHOW && (
       <Show
         student={props.interview.student}
@@ -82,7 +82,7 @@ export default function Appointment(props) {
       <Confirm
         message="Are you sure you would like to delete?" onConfirm={deleteAppo}
         onCancel={back}
-      //  why props.id is not passed down from here but still available in the confirm.js button?
+      //  why props.id is not passed down from here but still available in the confirm.js button?we dont need the props.id at confirm.js since deleteAppo takes no parameters.
       />}
 
     {mode === EDIT &&
