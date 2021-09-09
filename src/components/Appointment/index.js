@@ -25,7 +25,6 @@ export default function Appointment(props) {
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
-  // why put save and deleteAppo func here, not in the helper func?
   function save(name, interviewer) {
     const interview = {
       student: name,
@@ -39,15 +38,13 @@ export default function Appointment(props) {
   }
 
   function deleteAppo() {
-    transition(DELETE,true);
+    transition(DELETE, true);
     props.cancelInterview(props.id)
       .then(() => transition(EMPTY))
       .catch(() => transition(ERROR_DELETE, true))
 
   }
 
-
- console.log("props=",props.interview)
   return <article className="appointment">
     <Header time={props.time} />
     {mode === EMPTY &&
@@ -56,7 +53,7 @@ export default function Appointment(props) {
       />
     }
 
-  
+
     {mode === SHOW && (
       <Show
         student={props.interview.student}
@@ -82,16 +79,13 @@ export default function Appointment(props) {
       <Confirm
         message="Are you sure you would like to delete?" onConfirm={deleteAppo}
         onCancel={back}
-      //  why props.id is not passed down from here but still available in the confirm.js button?we dont need the props.id at confirm.js since deleteAppo takes no parameters.
       />}
 
     {mode === EDIT &&
       <Form
         name={props.interview.student}
-        // if time, review interview logic:why??
         interviewer={props.interview.interviewer.id}
         interviewers={props.interviewers}
-        // Best practice to use below or callback?
         onCancel={back}
         onSave={save}
 
@@ -105,15 +99,6 @@ export default function Appointment(props) {
     {mode === ERROR_DELETE &&
       <Error message="could not cancel appointment" onClose={back}
       />}
-
-
-    {/* {props.interview ?
-      <Show
-        student={props.interview.student}
-        interviewer={props.interview.interviewer}
-      /> : <Empty />} */}
-
-
 
   </article>
 }

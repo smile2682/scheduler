@@ -23,7 +23,6 @@ export default function Form(props) {
 
   const save = function () {
     validate()
-    // props.onSave(name, interviewer)
   }
 
 
@@ -32,20 +31,14 @@ export default function Form(props) {
       setError("Student name cannot be blank");
       return;
     }
-    // below works, but one test fails since on interviewer was passed in the test.
-    // else if(!interviewer){
-    //   setError("must choose an interviewer")
-    //   return;
-    // }
-    // console.log("interviewer",interviewer)
-    else{
+    else {
       setError('')
 
     }
     props.onSave(name, interviewer);
-    
+
   }
-  
+
   return (
 
     <main className="appointment__card appointment__card--create">
@@ -55,7 +48,6 @@ export default function Form(props) {
             className="appointment__create-input text--semi-bold"
             name="name"
             type="text"
-
             // for editing func to keep student's name
             placeholder={props.student ? props.student : "Enter Student Name"}
             value={name}

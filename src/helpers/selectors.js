@@ -5,7 +5,7 @@ function getAppointmentsForDay(state, day) {
       Day.appointments.forEach(number => AppoArray.push(state.appointments[number]))
     }
   }
-  //... returns an array of appointments for that day
+  //returns an array of appointments for that day
   return AppoArray;
 }
 
@@ -16,14 +16,12 @@ function getInterview(state, interview) {
 
   const interviewer = state.interviewers[interview.interviewer]
   return {
-    // student name and interviewer name
+    //returns a student name and an interviewer obj
     ...interview,
     interviewer,
-    // interviewer: name
+
   }
 }
-
-
 
 function getInterviewersForDay(state, day) {
   const IntArray = [];

@@ -16,7 +16,6 @@ export default function Show(props) {
         <section className="interviewer">
           <h4 className="text--light">Interviewer</h4>
           {interviewerName}
-          {/* <h3 className="text--regular">{props.interviewer.name || null}</h3> */}
         </section>
       </section>
       <section className="appointment__card-right">
