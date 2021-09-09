@@ -19,6 +19,16 @@ Main features includes:
 
 # Final Product
 
+## Empty appointment
+!["Empty appointment"](https://raw.githubusercontent.com/smile2682/scheduler/master/docs/appointment-empty.png)
+## Create or Edit an appointment
+!["Create or Edit an appointment"](https://raw.githubusercontent.com/smile2682/scheduler/master/docs/appointment-create.png)
+## Show an appointment
+!["Show an appointment"](https://raw.githubusercontent.com/smile2682/scheduler/master/docs/appointment-delete.png)
+## Delete an appointment
+!["Delete an appointment"](https://raw.githubusercontent.com/smile2682/scheduler/master/docs/appointment-create.png)
+
+
 
 ## Setup
 
