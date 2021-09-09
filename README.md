@@ -24,9 +24,9 @@ Main features includes:
 ## Create or Edit an appointment
 !["Create or Edit an appointment"](https://raw.githubusercontent.com/smile2682/scheduler/master/docs/appointment-create.png)
 ## Show an appointment
-!["Show an appointment"](https://raw.githubusercontent.com/smile2682/scheduler/master/docs/appointment-delete.png)
+!["Show an appointment"](https://raw.githubusercontent.com/smile2682/scheduler/master/docs/appointment-show.png)
 ## Delete an appointment
-!["Delete an appointment"](https://raw.githubusercontent.com/smile2682/scheduler/master/docs/appointment-create.png)
+!["Delete an appointment"](https://raw.githubusercontent.com/smile2682/scheduler/master/docs/appointment-delete.png)
 
 
 
